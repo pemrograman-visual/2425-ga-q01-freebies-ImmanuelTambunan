@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="X01"/>
+        <attribute name="authors" value="ASUS"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-10-09 04:32:35 PM"/>
+        <attribute name="created" value="QVNVUztMQVBUT1AtQUMyUVI5MzI7MjAyNC0xMC0wOTswMzowMzowNiBQTTsyNjAy"/>
+        <attribute name="edited" value="QVNVUztMQVBUT1AtQUMyUVI5MzI7MjAyNC0xMC0wOTswMzoyNzowOCBQTTszO0FTVVM7TEFQVE9QLUFDMlFSOTMyOzIwMjQtMTAtMDc7MDM6MzE6MTQgUE07VDA0LmZwcmc7NjA5OQ=="/>
+        <attribute name="edited" value="QVNVUztMQVBUT1AtQUMyUVI5MzI7MjAyNC0xMC0wOTswNDoyMjo1MiBQTTsyO0FDRVI7TVlIU1pFOzIwMjQtMTAtMDk7MDM6MTI6NTAgUE07WDAxWzFdLmZwcmc7NTc2Mw=="/>
+        <attribute name="edited" value="QVNVUztMQVBUT1AtQUMyUVI5MzI7MjAyNC0xMC0wOTswNDozMjozNSBQTTsxOzI3MTU="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="HargaBuku, TotalHarga, MinimalHarga" type="Real" array="False" size=""/>
+            <assign variable="TotalHarga" expression="0"/>
+            <assign variable="MinimalHarga" expression="999"/>
+            <input variable="HargaBuku"/>
+            <while expression="HargaBuku!=0">
+                <if expression="HargaBuku = 0">
+                    <then/>
+                    <else>
+                        <if expression="HargaBuku &lt; MinimalHarga">
+                            <then>
+                                <assign variable="MinimalHarga" expression="HargaBuku"/>
+                            </then>
+                            <else>
+                                <assign variable="HargaBuku" expression="HargaBuku"/>
+                            </else>
+                        </if>
+                        <assign variable="TotalHarga" expression="TotalHarga + HargaBuku"/>
+                    </else>
+                </if>
+                <input variable="HargaBuku"/>
+            </while>
+            <if expression="TotalHarga &gt;= 100">
+                <then>
+                    <assign variable="TotalHarga" expression="TotalHarga-MinimalHarga"/>
+                </then>
+                <else>
+                    <assign variable="TotalHarga" expression="TotalHarga"/>
+                </else>
+            </if>
+            <output expression="ToFixed(TotalHarga,2)" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>
